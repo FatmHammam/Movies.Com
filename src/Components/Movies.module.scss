@@ -1,0 +1,34 @@
+.container {
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+
+    h5 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+    p {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+            background-color: #420075;
+            border: none;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+}

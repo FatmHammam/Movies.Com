@@ -1,0 +1,104 @@
+.container {
+    width: 60%;
+    margin: 100px auto;
+    display: flex;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    align-items: center;
+    justify-content: space-around;
+    background-image: linear-gradient(rgba(2, 0, 0, 0.50),
+            rgba(2, 0, 0, 0.50)), url("../Images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .Info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        min-height: 80vh;
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+            label {
+                margin-bottom: 5px;
+                margin-top: 5px;
+                color: #999;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input {
+                margin-bottom: 15px;
+                border: none;
+                border-bottom: 1px solid #999;
+                width: 300px;
+            }
+
+            ::placeholder {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+            }
+        }
+
+        button {
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 300px;
+            border: none;
+            padding: 8px;
+            border-radius: 20px;
+            background-color: #5C00A3;
+            color: #fff;
+        }
+
+    }
+
+    .Guidness {
+        width: 35%;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h1 {
+                color: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 500;
+                //  font-family: Arial, Helvetica, sans-serif;
+            }
+
+            p {
+                width: 70%;
+                color: #fff;
+                opacity: 0.8;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 10px;
+            }
+        }
+
+        button {
+            width: 130px;
+            background-color: transparent;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            color: #fff;
+            padding: 5px;
+        }
+    }
+}

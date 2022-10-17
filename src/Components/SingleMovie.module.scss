@@ -1,0 +1,33 @@
+.container {
+    width: 750px;
+    min-Height: 100vh;
+    border: none;
+    margin-bottom: 150px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+
+    h5 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+    p {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        a {
+            background-color: #420075;
+            border: none;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+}
