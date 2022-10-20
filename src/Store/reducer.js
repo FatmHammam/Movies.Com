@@ -1,17 +1,28 @@
 import { createStore } from 'redux';
 import axios from 'axios';
 
-const initialState = {
-    allMovies: [],
-    selectedMovie: {},
-    addToWatchLater: [],
-    addToFavourites: []
-}
 let res;
 let getAllMovies = 'GETALLMOVIES'
 let getMovieById = "GET_MOVIE_BY_ID";
 let addToMyList = "ADD_TO_MY_LIST";
 let addToLikes = "ADD_TO_LIKES";
+const signUp = "REGISTER";
+const login = "LOGIN";
+const removeIndividualMovie = "REMOVE_INDIVIDUAL_LIST";
+const removeIndividualLike = "REMOVE_INDIVIDUAL_LIKE";
+
+const initialState = {
+    allMovies: [],
+    selectedMovie: {},
+    addToWatchLater: [],
+    addToFavourites: [],
+    users: [],
+    admin: {
+        email: "admin@movies.com",
+        name: "admin",
+        password: "123456"
+    }
+}
 
 const myAPI = axios.get("https://api.themoviedb.org/3/tv/popular?api_key=ac574edbf65384b1c76555da77eaffc1&language=en-US&page=1")
     .then(response => {
@@ -34,11 +45,20 @@ const reducer = (state = initialState, action) => {
             return { ...state, addToWatchLater: [...state.addToWatchLater, payload] }
         case addToLikes:
             return { ...state, addToFavourites: [...state.addToFavourites, payload] }
+        case signUp:
+            return { ...state, users: [...state.users, payload] }
+        case login:
+            return { ...state, user: action.user }
+        case removeIndividualMovie: {
+            return { ...state, addToWatchLater: [payload] }
+        }
+        case removeIndividualLike: {
+            return { ...state, addToFavourites: [payload] }
+        }
         default:
             return state;
     }
 }
-
 const store = createStore(reducer);
 
 export default store;
