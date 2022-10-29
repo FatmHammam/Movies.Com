@@ -7,6 +7,7 @@ function Login_Register() {
     const ParentFunction = (value) => {
         setFlag(value);
     }
+
     return (
         <div className={styles.container}>
 

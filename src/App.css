@@ -1,5 +1,13 @@
-.body {
+/* .body {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    background-color: brown;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+} */

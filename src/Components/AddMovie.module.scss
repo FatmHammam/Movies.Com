@@ -1,0 +1,17 @@
+.container {
+    width: 50%;
+    margin: 135px 500px;
+
+
+    .card {
+        width: 600px;
+        border: solid 1px #888;
+
+        @media (max-width: 992px) {
+            width: 300px;
+            margin: 0;
+        }
+    }
+
+
+}

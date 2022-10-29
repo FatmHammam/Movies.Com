@@ -10,6 +10,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    @media (max-width: 992px) {
+        width: 70%;
+    }
+
     .Info {
         flex: 1;
         display: flex;
@@ -19,8 +23,18 @@
         background-color: #fff;
         min-height: 80vh;
 
+        @media (max-width: 992px) {
+            width: 50%;
+        }
+
         h1 {
             font-family: Arial, Helvetica, sans-serif;
+
+            @media (max-width: 992px) {
+                font-size: 18px;
+                text-align: center;
+            }
+
         }
 
         form {
@@ -34,6 +48,10 @@
                 margin-top: 5px;
                 color: #999;
                 font-family: Arial, Helvetica, sans-serif;
+
+                @media (max-width: 992px) {
+                    font-size: 14px;
+                }
             }
 
             input {
@@ -41,6 +59,10 @@
                 border: none;
                 border-bottom: 1px solid #999;
                 width: 300px;
+
+                @media (max-width: 992px) {
+                    width: 70%;
+                }
             }
 
             ::placeholder {
@@ -58,6 +80,11 @@
             border-radius: 20px;
             background-color: #5C00A3;
             color: #fff;
+
+            @media (max-width: 992px) {
+                width: 70%;
+            }
+
         }
 
     }
@@ -70,17 +97,29 @@
         align-items: center;
         justify-content: space-evenly;
 
+        @media (max-width: 992px) {
+            width: 50%;
+        }
+
         div {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
+            @media (max-width: 992px) {
+                width: 50%;
+            }
+
             h1 {
                 color: #fff;
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: 500;
-                //  font-family: Arial, Helvetica, sans-serif;
+
+                @media (max-width: 992px) {
+                    font-size: 16px;
+                    text-align: center;
+                }
             }
 
             p {
@@ -89,6 +128,10 @@
                 opacity: 0.8;
                 font-family: Arial, Helvetica, sans-serif;
                 margin-top: 10px;
+
+                @media (max-width: 992px) {
+                    font-size: 13px;
+                }
             }
         }
 
@@ -99,6 +142,10 @@
             border-radius: 20px;
             color: #fff;
             padding: 5px;
+
+            @media (max-width: 992px) {
+                width: 70%;
+            }
         }
     }
 }

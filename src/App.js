@@ -6,6 +6,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import Favourites from './Pages/Favourites';
 import WatchLater from './Pages/WatchLater';
 import SelectedMovie from './Pages/SelectedMovie';
+import AdminDashboard from './Pages/AdminDashboard';
+import Filtered from './Pages/Filtered';
+
 
 const queryClient = new QueryClient();
 
@@ -25,8 +28,10 @@ function App() {
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/watchLater" element={<WatchLater />} />
             <Route path="/selectedMovie" element={<SelectedMovie />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/filtered" element={<Filtered />} />
           </Routes>
-        </BrowserRouter>,
+        </BrowserRouter>
 
       </QueryClientProvider>
     </div>

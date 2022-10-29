@@ -1,37 +1,27 @@
+import store from '../Store/reducer';
 import { useSelector } from 'react-redux';
-import styles from "./Movies.module.scss";
+import { useState } from 'react';
 import bg from '../Images/bg.jpg'
 import { useNavigate } from 'react-router-dom';
-import store from '../Store/reducer';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import styles from './SearchResult.module.scss'
 
-
-function Movies({ Statment }) {
+function SearchResult() {
     const navigate = useNavigate();
-    const [show, setShow] = useState(false);
-    const [visible, setVisible] = useState(true);
-    // const [showLikeButton, setShowLikeButton] = useState(true);
-    // const [showWatchLaterButton, setShowWatchLaterButton] = useState(true);
-    const listMovies = useSelector(state => state.allMovies);
+    const [value, setValue] = useState("")
+    const movies = useSelector(state => state.filters);
     const getMovieById = "GET_MOVIE_BY_ID";
     const addToMyList = "ADD_TO_MY_LIST";
     let addToLikes = "ADD_TO_LIKES";
     let myWatchLaterList = [];
     let myLikes = [];
 
-    const handleClose = () => setShow(false);
     const getPosterURL = (posterPath) => {
         return `https://www.themoviedb.org/t/p/original/${posterPath}`
     }
-
     return (
         <div className={styles.container} >
             {
-                listMovies.map((movie) => {
+                movies.map((movie) => {
                     const img = getPosterURL(movie["poster_path"]);
                     function getMovie(event) {
                         const element = movie;
@@ -44,8 +34,6 @@ function Movies({ Statment }) {
 
                     function addMovieToList(event) {
                         const element = movie;
-                        event.target.remove();
-
                         if (myWatchLaterList.indexOf(element) !== -1) {
                             alert("Already Exsists")
                         } else {
@@ -59,14 +47,15 @@ function Movies({ Statment }) {
 
                     function addMovieToLikes(event) {
                         const element = movie;
-                        console.log(event.target)
-                        event.target.remove();
-
-                        myLikes.push(element)
-                        store.dispatch({
-                            type: addToLikes,
-                            payload: myLikes
-                        })
+                        if (myLikes.indexOf(element) > -1) {
+                            alert("Already Exsists")
+                        } else {
+                            myLikes.push(element)
+                            store.dispatch({
+                                type: addToLikes,
+                                payload: myLikes
+                            })
+                        }
                     }
 
                     return (
@@ -92,4 +81,4 @@ function Movies({ Statment }) {
     );
 }
 
-export default Movies;
+export default SearchResult;

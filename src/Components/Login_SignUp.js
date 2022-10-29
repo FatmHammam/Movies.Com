@@ -9,9 +9,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function Login_SignUp(props) {
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("admin@movies.com");
+    const [name, setName] = useState("fatma");
+    const [password, setPassword] = useState("123456");
     const [validationFlag, setValidationFlag] = useState(false);
     const [validationEmail, setValidationEmail] = useState(false);
     const [validationPassword, setValidationPassword] = useState(false);
@@ -54,11 +54,15 @@ function Login_SignUp(props) {
 
         } else {
             if (user) {
-                dispatch({
-                    type: login,
-                    user
-                })
-                navigate('/home')
+                if (user.email === "admin@movies.com" && user.password === "123456") {
+                    navigate('/admin');
+                } else {
+                    dispatch({
+                        type: login,
+                        user
+                    })
+                    navigate('/home')
+                }
             } else {
                 alert("Wrong credential");
             }
@@ -79,7 +83,7 @@ function Login_SignUp(props) {
                         required
                     />
                     {validationEmail ? <p style={{ color: "red" }}>Invalid Email</p> : ""}
-                    {props.flag ? "" : <label>Name</label>}
+                    {props.flag ? "" : <label>First Name</label>}
                     {props.flag ? "" : <input type="text" value={name} onChange={(e) => setName(e.target.value)}
                         required
                     />}
@@ -91,7 +95,6 @@ function Login_SignUp(props) {
                 </form>
                 {validationFlag ? <p style={{ color: "red", fontFamily: "Arial", margin: 0 }}>Please Fill All Requied Fields</p> : ""}
                 <button onClick={registerAndLogin}>{props.button}</button>
-                {props.continueWithGoogle}
             </div>
             <div className={styles.Guidness}>
                 <div>
@@ -102,7 +105,7 @@ function Login_SignUp(props) {
             </div>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <Modal.Header style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                     <Modal.Title >Registered Successfully</Modal.Title>
                     <p style={{ marginTop: "20px" }}><FontAwesomeIcon icon={faCircleCheck} color="#0f0" size='4x' /></p>
                 </Modal.Header>

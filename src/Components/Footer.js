@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="footer" style={{ backgroundColor: "#420075", border: "none", backgroundColor: "transparent" }}>
+        <footer className="footer" style={{ backgroundColor: "#420075", border: "none", backgroundColor: "transparent", marginBottom: "0" }}>
             <div>
                 <a href="https://coreui.io" style={{ color: "#FFF", fontFamily: "Arial" }}>Movies.com</a>
                 <span style={{ color: "#FFF", fontFamily: "Arial" }}>&copy; 2022 creativeLabs.</span>

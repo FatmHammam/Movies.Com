@@ -10,6 +10,12 @@ const signUp = "REGISTER";
 const login = "LOGIN";
 const removeIndividualMovie = "REMOVE_INDIVIDUAL_LIST";
 const removeIndividualLike = "REMOVE_INDIVIDUAL_LIKE";
+const loOut = "LOG_OUT";
+const filtered = 'EDIT_TEXT_FILTER';
+const add = "ADD_MOVIE";
+const Admin_remove = "ADMIN_REMOVE";
+const Admin_edit = "ADMIN_EDIT";
+
 
 const initialState = {
     allMovies: [],
@@ -17,6 +23,9 @@ const initialState = {
     addToWatchLater: [],
     addToFavourites: [],
     users: [],
+    movieToEdit: {},
+    filters: [],
+    filteredMovie: {},
     admin: {
         email: "admin@movies.com",
         name: "admin",
@@ -41,6 +50,8 @@ const reducer = (state = initialState, action) => {
             return { ...state, allMovies: payload }
         case getMovieById:
             return { ...state, selectedMovie: payload }
+        case filtered:
+            return { ...state, filters: payload }
         case addToMyList:
             return { ...state, addToWatchLater: [...state.addToWatchLater, payload] }
         case addToLikes:
@@ -55,6 +66,15 @@ const reducer = (state = initialState, action) => {
         case removeIndividualLike: {
             return { ...state, addToFavourites: [payload] }
         }
+        case add: {
+            return { ...state, allMovies: [...state.allMovies, payload] }
+        }
+        case loOut:
+            return { ...state, user: null }
+        case Admin_remove:
+            return { ...state, allMovies: payload }
+        case Admin_edit:
+            return { ...state, movieToEdit: payload }
         default:
             return state;
     }

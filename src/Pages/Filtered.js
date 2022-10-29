@@ -2,19 +2,19 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Movies from "../Components/Movies";
 import Search from "../Components/Search";
+import SearchResult from "../Components/SearchResults";
 import styles from "./Home.module.scss"
 
 
-function Home() {
+function Filtered() {
 
     return (
         <div className={styles.container}>
             <Header />
-            <Search />
-            <Movies />
+            <SearchResult />
             <Footer />
         </div>
     );
 }
 
-export default Home;
+export default Filtered;

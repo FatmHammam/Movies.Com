@@ -1,10 +1,7 @@
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Likes from "../Components/Likes";
-import Movies from "../Components/Movies";
 import styles from "./Home.module.scss"
-
-
 
 function Favourites() {
 
