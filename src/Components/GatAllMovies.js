@@ -9,7 +9,7 @@ import styles from './GetAllMovies.module.scss'
 
 function GetAllMovies() {
     const listMovies = useSelector(state => state.allMovies);
-    const movieToEdit = useSelector(state => state.movieToEdit);
+    let movieToEdit = useSelector(state => state.movieToEdit);
     const navigate = useNavigate();
     const Admin_remove = "ADMIN_REMOVE";
     const Admin_edit = "ADMIN_EDIT";
@@ -25,7 +25,7 @@ function GetAllMovies() {
     }
 
     const deleteMovie = (movieToDelete) => {
-        const filteredMovies = listMovies.filter((movie) => movie !== movieToDelete)
+        const filteredMovies = listMovies.filter((movie) => movie !== movieToDelete);
 
         store.dispatch({
             type: Admin_remove,
@@ -34,22 +34,22 @@ function GetAllMovies() {
     }
 
     const editMovie = (movie) => {
-        setShow(true)
+        setShow(true);
+        movieToEdit = movie;
         store.dispatch({
             type: Admin_edit,
-            payload: movie
+            payload: movieToEdit
         })
     }
 
-    const editModal = (name, overview, poster_path, Year) => {
-        store.dispatch({
-            type: Admin_edit,
-            payload: { name, overview, Year }
-        })
-    }
+    const editModal = (movie) => {
+        setName(name);
+        setOverview(overview);
+        setFirst_air_date(first_air_date);
 
-    const newName = (value) => {
-        setName(value);
+        movieToEdit.name = name;
+        movieToEdit.overview = overview;
+        movieToEdit.first_air_date = first_air_date;
     }
 
     return (
@@ -82,7 +82,7 @@ function GetAllMovies() {
                         {/* -------------------------------- Modal ---------------------------- */}
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                                <Modal.Title >Edit Movie</Modal.Title>
+                                <Modal.Title>Edit Movie</Modal.Title>
                                 <p style={{ marginTop: "20px" }}></p>
                             </Modal.Header>
                             <ModalBody>
@@ -90,35 +90,36 @@ function GetAllMovies() {
                                     <div className="form-group" style={{ margin: "10px" }}>
                                         <label className="control-label">Movie Name</label>
                                         <input type="text" className="input-lg form-control" required
-                                            value={movieToEdit.name}
-                                            onChange={(e) => newName(e.target.value)}
+                                            // value={movieToEdit.name}
+                                            // value={movie.name}
+                                            onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
                                     <div className="form-group" style={{ margin: "10px" }}>
                                         <label>Description</label>
                                         <input type="text" className="input-lg form-control" required
-                                            value={movieToEdit.overview}
+                                            // value={movie.overview}
                                             onChange={(e) => setOverview(e.target.value)}
                                         />
                                     </div>
                                     <div className="form-group" style={{ margin: "10px" }}>
                                         <label>Year</label>
                                         <input type="text" className="input-lg form-control" required
-                                            value={movieToEdit["first_air_date"]}
+                                            // value={movieToEdit["first_air_date"]}
                                             onChange={(e) => setFirst_air_date(e.target.value)}
                                         />
                                     </div>
                                     <div className="form-group" style={{ margin: "20px" }}>
                                         <label style={{ marginRight: "10px" }}>Image</label>
                                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpg"
-                                            value={movieToEdit.poster}
+                                            // value={movieToEdit.poster}
                                             onChange={(e) => setPoster(e.target.value)}
                                         />
                                     </div>
                                     <div>
                                         <div className="form-group">
                                             <input value="Edit" type="button" className="btn btn-success btn-lg form-control"
-                                                onClick={editModal}
+                                                onClick={(e) => editModal(movie)}
                                             />
                                         </div>
                                     </div>
@@ -139,3 +140,24 @@ function GetAllMovies() {
 }
 
 export default GetAllMovies;
+
+
+// const editModal = ( movie) => {
+//     console.log(movie);
+
+//     const editedTaskList = listMovies.map((movie) => {
+//         // if this task has the same ID as the edited task
+//         if (id === movie.id) {
+//             //
+//             return { ...movie, name: newName }
+//         }
+//         console.log(name)
+//         // console.log(newName)
+//         return movie;
+//     });
+//     setName(name);
+//     store.dispatch({
+//         type: Admin_edit,
+//         // payload: { name, overview, Year }
+//     })
+// }

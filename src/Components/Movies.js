@@ -59,7 +59,6 @@ function Movies({ Statment }) {
 
                     function addMovieToLikes(event) {
                         const element = movie;
-                        console.log(event.target)
                         event.target.remove();
 
                         myLikes.push(element)

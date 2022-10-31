@@ -25,17 +25,17 @@ function AddMovie({ movie }) {
 
     return (
         <div className={styles.container}>
-            <div className="padding"  >
-                <div className="row" >
-                    <div className="container-fluid d-flex justify-content-center" >
+            <div className="padding">
+                <div className="row">
+                    <div className="container-fluid d-flex justify-content-center">
                         <div className="col-sm-8 col-md-6">
                             <div className={styles.card}>
-                                <div className="card-header" >
+                                <div className="card-header">
                                     <p
                                         style={{ textAlign: "center", color: "#333", fontFamily: "arial", fontSize: "18px", fontWeight: "600", marginTop: "5px" }}
                                     >Add Movie</p>
                                 </div>
-                                <div className="card-body" >
+                                <div className="card-body">
                                     <div className="form-group" style={{ margin: "10px" }}>
                                         <label className="control-label">Movie Name</label>
                                         <input type="text" className="input-lg form-control" required
