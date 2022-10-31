@@ -10,7 +10,6 @@ function Login_Register() {
 
     return (
         <div className={styles.container}>
-
             <Login_SignUp
                 title={flag ? "Welcome Back !" : "Time to feel like home,"}
                 button={flag ? "Login" : "Sign Up"}

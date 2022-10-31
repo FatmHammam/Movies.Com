@@ -1,0 +1,44 @@
+[debug] [2022-10-31T12:46:14.018Z] ----------------------------------------------------------------------
+[debug] [2022-10-31T12:46:14.021Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-10-31T12:46:14.021Z] CLI Version:   11.15.0
+[debug] [2022-10-31T12:46:14.021Z] Platform:      win32
+[debug] [2022-10-31T12:46:14.022Z] Node Version:  v18.3.0
+[debug] [2022-10-31T12:46:14.023Z] Time:          Mon Oct 31 2022 14:46:14 GMT+0200 (Eastern European Standard Time)
+[debug] [2022-10-31T12:46:14.024Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-31T12:46:14.033Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-31T12:46:14.034Z] > authorizing via signed-in user (fa.hammam95@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\dell\OneDrive\Desktop\movies.com
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2022-10-31T12:48:19.825Z] > refreshing access token with scopes: []
+[debug] [2022-10-31T12:48:19.827Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-31T12:48:19.827Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-31T12:48:20.124Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-31T12:48:20.124Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-31T12:48:20.143Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2022-10-31T12:48:20.143Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"movies-c6774","name":"Movies.com"}
+[debug] [2022-10-31T12:48:21.000Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 400
+[debug] [2022-10-31T12:48:21.000Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":400,"message":"field [display_name] has issue [project display name contains invalid characters]","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.BadRequest","fieldViolations":[{"field":"display_name","description":"project display name contains invalid characters"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"url":"https://cloud.google.com/resource-manager/reference/rest/v1/projects"}]}]}}
+[debug] [2022-10-31T12:48:21.177Z] FirebaseError: HTTP Error: 400, field [display_name] has issue [project display name contains invalid characters]
+    at responseToError (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.

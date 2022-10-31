@@ -10,16 +10,14 @@ import styles from './GetAllMovies.module.scss'
 function GetAllMovies() {
     const listMovies = useSelector(state => state.allMovies);
     let movieToEdit = useSelector(state => state.movieToEdit);
-    const navigate = useNavigate();
     const Admin_remove = "ADMIN_REMOVE";
     const Admin_edit = "ADMIN_EDIT";
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
     const [name, setName] = useState("");
     const [overview, setOverview] = useState("");
     const [first_air_date, setFirst_air_date] = useState("");
-    const [poster, setPoster] = useState("");
     const getPosterURL = (posterPath) => {
         return `https://www.themoviedb.org/t/p/original/${posterPath}`
     }
@@ -90,8 +88,6 @@ function GetAllMovies() {
                                     <div className="form-group" style={{ margin: "10px" }}>
                                         <label className="control-label">Movie Name</label>
                                         <input type="text" className="input-lg form-control" required
-                                            // value={movieToEdit.name}
-                                            // value={movie.name}
                                             onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
@@ -107,13 +103,6 @@ function GetAllMovies() {
                                         <input type="text" className="input-lg form-control" required
                                             // value={movieToEdit["first_air_date"]}
                                             onChange={(e) => setFirst_air_date(e.target.value)}
-                                        />
-                                    </div>
-                                    <div className="form-group" style={{ margin: "20px" }}>
-                                        <label style={{ marginRight: "10px" }}>Image</label>
-                                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpg"
-                                            // value={movieToEdit.poster}
-                                            onChange={(e) => setPoster(e.target.value)}
                                         />
                                     </div>
                                     <div>

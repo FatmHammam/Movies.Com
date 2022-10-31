@@ -57,13 +57,6 @@ function AddMovie({ movie }) {
                                             onChange={(e) => setFirst_air_date(e.target.value)}
                                         />
                                     </div>
-                                    <div className="form-group" style={{ margin: "20px" }}>
-                                        <label style={{ marginRight: "10px" }}>Image</label>
-                                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpg"
-                                            value={poster}
-                                            onChange={(e) => setPoster(e.target.value)}
-                                        />
-                                    </div>
                                     <div >
                                         <div className="form-group">
                                             <input value="Add" type="button" className="btn btn-success btn-lg form-control"

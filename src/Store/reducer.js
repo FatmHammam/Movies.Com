@@ -33,6 +33,13 @@ const initialState = {
     }
 }
 
+
+// const persistedState = localStorage.getItem('initialState')
+//     ? JSON.parse(localStorage.getItem('initialState'))
+//     : {}
+
+
+
 const myAPI = axios.get("https://api.themoviedb.org/3/tv/popular?api_key=ac574edbf65384b1c76555da77eaffc1&language=en-US&page=1")
     .then(response => {
         res = response.data.results;
@@ -57,7 +64,7 @@ const reducer = (state = initialState, action) => {
         case addToLikes:
             return { ...state, addToFavourites: [...state.addToFavourites, payload] }
         case signUp:
-            return { ...state, users: [...state.users, payload] }
+            return { ...state, users: [...state?.users, payload] }
         case login:
             return { ...state, user: action.user }
         case removeIndividualMovie: {
@@ -80,5 +87,13 @@ const reducer = (state = initialState, action) => {
     }
 }
 const store = createStore(reducer);
+
+
+// const store = createStore(reducer, persistedState);
+
+// store.subscribe(() => {
+//     localStorage.setItem('initialState', JSON.stringify(store.getState()))
+// })
+
 
 export default store;

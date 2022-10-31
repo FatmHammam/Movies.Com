@@ -9,9 +9,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function Login_SignUp(props) {
-    const [email, setEmail] = useState("admin@movies.com");
-    const [name, setName] = useState("fatma");
-    const [password, setPassword] = useState("123456");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
     const [validationFlag, setValidationFlag] = useState(false);
     const [validationEmail, setValidationEmail] = useState(false);
     const [validationPassword, setValidationPassword] = useState(false);
