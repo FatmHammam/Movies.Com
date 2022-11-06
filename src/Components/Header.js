@@ -4,11 +4,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import store from "../Store/reducer";
 
-function Header({ admin }) {
+function Header() {
     const users = useSelector(state => state.users);
     const loOut = "LOG_OUT";
     const navigate = useNavigate();
-
 
     const logout = () => {
         store.dispatch({

@@ -7,7 +7,6 @@ import styles from './SearchResult.module.scss'
 
 function SearchResult() {
     const navigate = useNavigate();
-    const [value, setValue] = useState("")
     const movies = useSelector(state => state.filters);
     const getMovieById = "GET_MOVIE_BY_ID";
     const addToMyList = "ADD_TO_MY_LIST";

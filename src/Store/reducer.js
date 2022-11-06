@@ -16,7 +16,6 @@ const add = "ADD_MOVIE";
 const Admin_remove = "ADMIN_REMOVE";
 const Admin_edit = "ADMIN_EDIT";
 
-
 const initialState = {
     allMovies: [],
     selectedMovie: {},
@@ -32,13 +31,6 @@ const initialState = {
         password: "123456"
     }
 }
-
-
-// const persistedState = localStorage.getItem('initialState')
-//     ? JSON.parse(localStorage.getItem('initialState'))
-//     : {}
-
-
 
 const myAPI = axios.get("https://api.themoviedb.org/3/tv/popular?api_key=ac574edbf65384b1c76555da77eaffc1&language=en-US&page=1")
     .then(response => {
@@ -60,9 +52,9 @@ const reducer = (state = initialState, action) => {
         case filtered:
             return { ...state, filters: payload }
         case addToMyList:
-            return { ...state, addToWatchLater: [...state.addToWatchLater, payload] }
+            return { ...state, addToWatchLater: [payload] }
         case addToLikes:
-            return { ...state, addToFavourites: [...state.addToFavourites, payload] }
+            return { ...state, addToFavourites: [payload] }
         case signUp:
             return { ...state, users: [...state?.users, payload] }
         case login:
@@ -86,14 +78,7 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
+
 const store = createStore(reducer);
-
-
-// const store = createStore(reducer, persistedState);
-
-// store.subscribe(() => {
-//     localStorage.setItem('initialState', JSON.stringify(store.getState()))
-// })
-
 
 export default store;
