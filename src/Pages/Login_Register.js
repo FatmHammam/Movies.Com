@@ -17,7 +17,7 @@ function Login_Register() {
                 GiudTwo={flag ? "Sign up and discover a great amount of new opportunities"
                     : "If you already have an account. Just sign in. we've missed you."}
                 flippedButton={flag ? "Sign Up" : "Login"}
-                flexDirection={flag ? "row" : "row-reverse"}
+                // flexDirection={flag ? "row" : "row-reverse"}
                 onClick={ParentFunction}
                 flag={flag}
             />

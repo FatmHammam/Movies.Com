@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import store from "../Store/reducer";
+import { Nav, Navbar, Container } from "react-bootstrap";
+
 
 function Header() {
     const users = useSelector(state => state.users);
@@ -34,41 +36,53 @@ function Header() {
                 border: "none",
                 backgroundColor: "transparent"
             }}>
-            <a className="header-brand" style={{ color: '#fff', cursor: "pointer" }} href="#">Movies.com</a>
-            <ul className="header-nav">
-                <li className="nav-item active">
-                    <a className='nav-link' style={{ color: '#fff', cursor: "pointer" }} onClick={goHome}>Home <span className="visually-hidden">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                    <a className='nav-link' style={{ color: '#fff', cursor: "pointer" }} onClick={goToFavourites}>Favorites</a>
-                </li>
-                <li className="nav-item">
-                    <a className='nav-link' style={{ color: '#fff', cursor: "pointer" }} onClick={goToMyList}>Watch Later</a>
-                </li>
-                <li className="nav-item dropdown">
-                    <Dropdown as={ButtonGroup} styles={{ backgroundColor: "transparent" }}>
 
-                        <Dropdown.Toggle
-                            split variant="success"
-                            style={{
-                                backgroundColor: "transparent", border: 'none', color: "#fff", padding: "10px", margin: "0 10px"
-                                , display: "flex", alignItems: "center", justifyContent: "space-around"
-                                , width: "130px",
-                                boxShadow: "none"
-                            }}>
-                            {users[0].name ? users[0].name : " "}
-                        </Dropdown.Toggle>
+            <Navbar expand="md" fixed="top">
+                <Container >
 
-                        <Dropdown.Menu style={{ fontFamily: "Arial", textAlign: "center", backgroundColor: "transparent", border: 'none', color: "#fff" }}
-                        >
-                            <Dropdown.Item
-                                onClick={logout}
-                                style={{ fontFamily: "Arial", textAlign: "center", marginLeft: "25px", backgroundColor: "transparent", border: 'none', color: "#fff" }}
-                            >Logout</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </li>
-            </ul>
+                    <Navbar.Toggle />
+                    <Navbar.Collapse >
+                        <Navbar.Brand href="/" style={{ padding: 0 }}>
+                            <a className="header-brand" style={{ color: '#fff', cursor: "pointer" }} href="#">Movies.com</a>
+                        </Navbar.Brand>
+
+                        <ul className="header-nav">
+                            <Nav style={{ padding: 0 }}>
+                                <Nav.Link onClick={goHome} style={{ color: '#fff', cursor: "pointer" }}>Home</Nav.Link>
+
+                                <Nav.Link onClick={goToFavourites} style={{ color: '#fff', cursor: "pointer" }}>Favorites</Nav.Link>
+
+                                <Nav.Link onClick={goToMyList} style={{ color: '#fff', cursor: "pointer" }}>Watch Later</Nav.Link>
+                            </Nav>
+                        </ul>
+                        <ul style={{ color: "transparent", marginTop: "5px" }}>
+                            <li className="nav-item dropdown">
+                                <Dropdown as={ButtonGroup} styles={{ backgroundColor: "transparent" }}>
+
+                                    <Dropdown.Toggle
+                                        split variant="success"
+                                        style={{
+                                            backgroundColor: "transparent", border: 'none', color: "#fff", padding: "10px", margin: "0 10px"
+                                            , display: "flex", alignItems: "center", justifyContent: "space-around"
+                                            , width: "130px",
+                                            boxShadow: "none"
+                                        }}>
+                                        {users[0].name ? users[0].name : " "}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu style={{ fontFamily: "Arial", textAlign: "center", backgroundColor: "transparent", border: 'none', color: "#fff" }}
+                                    >
+                                        <Dropdown.Item
+                                            onClick={logout}
+                                            style={{ fontFamily: "Arial", textAlign: "center", marginLeft: "25px", backgroundColor: "transparent", border: 'none', color: "#fff" }}
+                                        >Logout</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </li>
+                        </ul>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </header >
     );
 }

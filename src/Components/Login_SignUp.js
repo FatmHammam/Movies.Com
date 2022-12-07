@@ -70,10 +70,7 @@ function Login_SignUp(props) {
     }
 
     return (
-        <div className={styles.container}
-            style={{
-                flexDirection: props.flexDirection
-            }}
+        <div className={`${styles.container} ${props.flag ? styles.row : styles.colom}`}
         >
             <div className={styles.Info}>
                 <h1>{props.title}</h1>
